@@ -1,4 +1,3 @@
-// CityTable.tsx
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -15,12 +14,12 @@ import {
   Typography,
   AppBar,
   Toolbar,
-  IconButton,
 } from "@mui/material";
 
 const CityTable: React.FC = () => {
   const [cities, setCities] = useState<any[]>([]);
   const [filter, setFilter] = useState("");
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
 
   useEffect(() => {

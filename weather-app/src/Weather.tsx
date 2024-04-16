@@ -18,7 +18,6 @@ const WeatherPage: React.FC = () => {
           `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=b92edfdcf55c1b31fbb57be31aa6f497`
         );
         setWeatherData(response.data);
-        console.log(setWeatherData(response.data));
       } catch (error) {
         console.error("Error fetching weather data:", error);
       }
