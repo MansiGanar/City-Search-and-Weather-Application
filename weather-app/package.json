@@ -24,9 +24,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "nodemon src/app.tsx",
+    "test": "react-scripts test"
   },
   "eslintConfig": {
     "extends": [
