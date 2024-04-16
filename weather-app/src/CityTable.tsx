@@ -14,6 +14,7 @@ import {
   Typography,
   AppBar,
   Toolbar,
+  Box,
 } from "@mui/material";
 
 const CityTable: React.FC = () => {
@@ -69,7 +70,7 @@ const CityTable: React.FC = () => {
     setSortOrder("desc");
   };
   return (
-    <div style={{ backgroundColor: "#EEF5FF" }}>
+    <Box style={{ backgroundColor: "#EEF5FF" }}>
       <AppBar position="static" style={{ backgroundColor: "#0C2D57" }}>
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
@@ -77,8 +78,11 @@ const CityTable: React.FC = () => {
           </Typography>
         </Toolbar>
       </AppBar>
-      <div style={{ marginBottom: "20px", textAlign: "center" }}>
-        <Typography sx={{ backgroundColor: "#D5F0C1", padding: "10px" }}>
+      <Box style={{ marginBottom: "20px", textAlign: "center" }}>
+        <Typography
+          sx={{ backgroundColor: "#D5F0C1", padding: "10px" }}
+          component="div"
+        >
           Sort the data in Ascending or Descending Order
         </Typography>
         <Button
@@ -102,9 +106,13 @@ const CityTable: React.FC = () => {
             value={filter}
             onChange={handleFilterChange}
             sx={{ padding: "10px" }}
+            component="div"
           />
         </Typography>
-        <Typography sx={{ backgroundColor: "#D5F0C1", padding: "10px" }}>
+        <Typography
+          sx={{ backgroundColor: "#D5F0C1", padding: "10px" }}
+          component="div"
+        >
           Select name of the city to see the weather
         </Typography>
         <TableContainer
@@ -164,8 +172,8 @@ const CityTable: React.FC = () => {
             </TableBody>
           </Table>
         </TableContainer>
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };
 

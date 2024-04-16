@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { Typography, Paper } from "@mui/material";
+import { Typography, Paper, Box } from "@mui/material";
 import SunnyBackground from "./sunny.jpg";
 import CloudyBackground from "./clouds.jpg";
 import RainyBackground from "./rainy.jpg";
@@ -17,6 +17,7 @@ const WeatherPage: React.FC = () => {
         const response = await axios.get(
           `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=b92edfdcf55c1b31fbb57be31aa6f497`
         );
+        console.log(process.env.TOKEN);
         setWeatherData(response.data);
       } catch (error) {
         console.error("Error fetching weather data:", error);
@@ -26,7 +27,7 @@ const WeatherPage: React.FC = () => {
   }, [cityName]);
 
   if (!weatherData) {
-    return <div>Loading...</div>;
+    return <Box>Loading...</Box>;
   }
 
   let backgroundImage;
@@ -55,34 +56,43 @@ const WeatherPage: React.FC = () => {
   };
   return (
     <Paper elevation={3} style={paperStyles}>
-      <Typography gutterBottom style={{ fontSize: "3rem", padding: "10px" }}>
+      <Typography
+        gutterBottom
+        component="div"
+        style={{ fontSize: "3rem", padding: "10px" }}
+      >
         Weather in {cityName}
       </Typography>
       <Typography
         variant="body1"
+        component="div"
         style={{ fontSize: "2rem", textAlign: "center", padding: "10px" }}
       >
         Temperature: {weatherData.main.temp}°C
       </Typography>
       <Typography
+        component="div"
         variant="body1"
         style={{ fontSize: "2rem", textAlign: "center", padding: "10px" }}
       >
         Feels like: {weatherData.main.feels_like}°C
       </Typography>
       <Typography
+        component="div"
         variant="body1"
         style={{ fontSize: "2rem", textAlign: "center", padding: "10px" }}
       >
         Humidity: {weatherData.main.humidity}
       </Typography>
       <Typography
+        component="div"
         variant="body1"
         style={{ fontSize: "2rem", textAlign: "center", padding: "10px" }}
       >
         Weather: {weatherData.weather[0].description}
       </Typography>
       <Typography
+        component="div"
         variant="body1"
         style={{ fontSize: "2rem", textAlign: "center", padding: "10px" }}
       >
